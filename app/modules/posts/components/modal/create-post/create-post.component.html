@@ -1,0 +1,34 @@
+<div class="create-post">
+  <mat-dialog-content class="card-body">
+    <h3 class="card-title">Create a post</h3>
+    <form [formGroup]="postForm" class="create-post-form">
+      <div class="form-group mb-3">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          placeholder="Title of post"
+          formControlName="title"
+          class="form-control"
+          id="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="content">Content</label>
+        <textarea
+          class="form-control"
+          placeholder="Content"
+          formControlName="body"
+          id="content"
+        ></textarea>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions class="create-post-actions">
+    <button type="button" class="btn btn-outline-secondary" (click)="close()">
+      Close
+    </button>
+    <button type="button" class="btn btn-outline-primary" (click)="onSave()">
+      Save
+    </button>
+  </mat-dialog-actions>
+</div>

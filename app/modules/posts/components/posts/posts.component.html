@@ -1,0 +1,35 @@
+<div class="spinner-overlay" *ngIf="loading">
+  <div class="spinner-border spinner-border-md text-dark" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="container posts">
+  <h1 class="posts-title">Posts</h1>
+  <div class="posts-actions mb-4">
+    <button
+      type="button"
+      class="btn btn-outline-success"
+      (click)="createPosts()"
+    >
+      Add
+    </button>
+    <input
+      type="search"
+      class="form-control ds-input posts-actions__search"
+      placeholder="Search..."
+      spellcheck="false"
+      (input)="onSearchQueryInput($event)"
+    />
+  </div>
+  <div class="posts-list">
+    <div *ngIf="posts$ | async as posts">
+      <div *ngFor="let post of posts">
+        <app-post [post]="post"></app-post>
+      </div>
+      <div *ngIf="!posts.length && !loading" class="posts-no-data">
+        No posts found!
+      </div>
+    </div>
+  </div>
+</div>

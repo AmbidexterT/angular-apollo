@@ -1,0 +1,58 @@
+<div class="post">
+  <div class="post-header">
+    <div class="post-header-title">
+      <h3 *ngIf="!isEditing">{{ post.title }}</h3>
+
+      <div class="form-group" *ngIf="isEditing">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          placeholder="Title"
+          class="form-control"
+          [(ngModel)]="title"
+          id="title"
+        />
+      </div>
+    </div>
+    <div class="post-header-actions" *ngIf="!isEditing">
+      <button mat-icon-button (click)="edit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deletePost()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="post-body">
+    <div *ngIf="!isEditing">{{ post.body }}</div>
+
+    <div class="form-group" *ngIf="isEditing">
+      <label for="content">Content</label>
+      <textarea
+        *ngIf="isEditing"
+        class="form-control"
+        rows="5"
+        [(ngModel)]="body"
+        placeholder="Content"
+        id="content"
+      ></textarea>
+    </div>
+  </div>
+  <div class="post-footer" *ngIf="isEditing">
+    <button
+      type="button"
+      class="btn btn-outline-secondary post-footer-action--button"
+      (click)="cancel()"
+    >
+      Cancel
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      (click)="updatePost()"
+    >
+      Save
+    </button>
+  </div>
+</div>

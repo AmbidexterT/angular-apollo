@@ -1,0 +1,16 @@
+.create-post {
+    &-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-actions {
+        margin: 0 16px 16px;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+}
+
+.card-title {
+    margin: 16px 0;
+}
